@@ -1,0 +1,9 @@
+name: MiniGames
+main: me.danielw231.minigames.MiniGames
+version: 1.0
+author: DanielW231
+commands:
+  arena:
+    description: The command that allows a player to join or leave an arena as well as checking the id of an arena.
+  kit:
+    description: The command that allows a player to choose a kit.

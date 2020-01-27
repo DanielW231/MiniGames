@@ -1,0 +1,62 @@
+package me.danielw231.minigames.util;
+
+import me.danielw231.minigames.managers.Manager;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+
+public class H
+{
+    public static ItemStack createItem(String name, Material material)
+    {
+        final ItemStack item = new ItemStack(material);
+        final ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(name);
+        item.setItemMeta(meta);
+
+        return item;
+    }
+
+    public static void teleportToSpawn(Player player)
+    {
+        player.teleport(Manager.SPAWN_POINT);
+    }
+
+    public static void clearInventoryAndEffects(Player player)
+    {
+        clearInventory(player);
+        clearPotionEffects(player);
+    }
+
+    public static void clearInventory(Player player)
+    {
+        player.getInventory().clear();
+        player.getEquipment().clear();
+    }
+
+    public static void clearPotionEffects(Player player)
+    {
+        for (PotionEffect effect : player.getActivePotionEffects())
+        {
+            player.removePotionEffect(effect.getType());
+        }
+    }
+
+    public static void sendMessage(Player player, String message)
+    {
+        player.sendMessage(message);
+    }
+
+    public static void sendPluginMessage(Player player, String module, String message)
+    {
+        player.sendMessage(F.info(module, message));
+    }
+
+    public static void broadcast(String message)
+    {
+        Bukkit.broadcastMessage(message);
+    }
+}
